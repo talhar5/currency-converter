@@ -35,8 +35,14 @@ select {
 }
 
 .loading {
-  color: #6e6e6e;
+  color: rgb(34, 34, 34);
   font-size: 1.3rem;
+}
+.loading > i{
+  --fa-animation-duration: 0.9s;
+  text-align: center;
+  display: block;
+  padding-top: 2px;
 }
 
 @media screen and (max-width: 468px) {

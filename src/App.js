@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() { 
+function App() {
   const [currencyData, setCurrencyData] = useState()
   const [isLoading, setIsLoading] = useState(true)
   const [isError, setIsError] = useState(false)
@@ -16,7 +16,7 @@ function App() {
     fetch("https://api.currencyapi.com/v3/latest?apikey=V9o0b2yP2jfOnvukAixciEZq0ndu0epkVIxL3kz9").then(res => res.json()).then((data) => {
       setCurrencyData(data)
       setIsLoading(false)
-    }).catch(error =>{
+    }).catch(error => {
       setIsError(true);
       setIsLoading(false);
       console.log("Error Message: " + error.message);
@@ -40,7 +40,7 @@ function App() {
   // onChange handlers 
   function handleFromCurrency(e) {
     setFromCurrency(e.target.value);
-  } 
+  }
   function handleToCurrency(e) {
     setToCurrency(e.target.value);
   }
@@ -61,7 +61,9 @@ function App() {
     toValue = amount
   }
 
-  if (isLoading) return <div className="loading">loading...</div>;
+  if (isLoading) return <div className="loading">
+    <i className="fa-solid fa-asterisk fa-spin" ></i>
+  </div>;
   if (isError) return <div>We are really sorry, There is some error. Check Console</div>
   return (
     <>
