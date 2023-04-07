@@ -55,23 +55,23 @@ function App() {
   let fromValue, toValue;
   if (isUpperChanged) {
     fromValue = amount;
-    toValue = amount * multiplier
+    toValue = (amount * multiplier).toFixed(4);
   } else {
-    fromValue = amount / multiplier;
+    fromValue = (amount / multiplier).toFixed(4);
     toValue = amount
   }
 
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) return <div className="loading">loading...</div>;
   if (isError) return <div>We are really sorry, There is some error. Check Console</div>
   return (
     <>
       <h1>Currency Converter</h1>
-      <input value={parseFloat(fromValue).toFixed(4)} onChange={handleFromAmount} className='input' type="number" />
+      <input value={fromValue} onChange={handleFromAmount} className='input' type="number" />
       <select value={fromCurrency} onChange={handleFromCurrency}>
         {currencyNames}
       </select>
       <div className='equal'>=</div>
-      <input value={parseFloat(toValue).toFixed(4)} onChange={handleToAmount} className='input' type="number" />
+      <input value={toValue} onChange={handleToAmount} className='input' type="number" />
       <select value={toCurrency} onChange={handleToCurrency}>
         {currencyNames}
       </select>
